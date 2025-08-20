@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A&T Tech</title>
+  <!-- Tailwind CSS über CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center p-6 bg-white shadow-md">
+    <h1 class="text-2xl font-bold text-blue-600">A&T Tech</h1>
+    <ul class="flex gap-6 font-medium">
+      <li><a href="#home" class="hover:text-blue-500">Home</a></li>
+      <li><a href="#rep" class="hover:text-blue-500">Reparaturen</a></li>
+      <li><a href="#builds" class="hover:text-blue-500">PC-Builds</a></li>
+      <li><a href="#services" class="hover:text-blue-500">Dienstleistungen</a></li>
+      <li><a href="#about" class="hover:text-blue-500">Über uns</a></li>
+      <li><a href="#contact" class="hover:text-blue-500">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="flex flex-col items-center justify-center text-center py-24 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+    <h2 class="text-4xl font-bold mb-4">Willkommen bei A&T Tech</h2>
+    <p class="max-w-2xl text-lg mb-6">
+      Dein Partner für PC-Reparaturen, Custom-Builds und professionelle IT-Dienstleistungen.
+    </p>
+    <a href="#contact" class="px-6 py-3 bg-white text-blue-600 font-semibold rounded-xl shadow-md hover:bg-gray-100">Jetzt Kontakt aufnehmen</a>
+  </section>
+
+  <!-- Kategorien -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-8 p-12">
+    <div id="rep" class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition">
+      <h3 class="text-xl font-bold mb-2 text-blue-600">Reparaturen</h3>
+      <p>Wir reparieren PCs, Laptops und Smartphones schnell & zuverlässig.</p>
+    </div>
+
+    <div id="builds" class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition">
+      <h3 class="text-xl font-bold mb-2 text-blue-600">PC-Builds</h3>
+      <p>Custom Gaming-PCs & Workstations – perfekt auf deine Bedürfnisse abgestimmt.</p>
+    </div>
+
+    <div id="services" class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition">
+      <h3 class="text-xl font-bold mb-2 text-blue-600">Dienstleistungen</h3>
+      <p>Von Software-Setup bis Datenrettung – wir kümmern uns um alles.</p>
+    </div>
+  </section>
+
+  <!-- Über uns -->
+  <section id="about" class="p-12 bg-gray-100 text-center">
+    <h3 class="text-2xl font-bold mb-4">Über uns</h3>
+    <p class="max-w-3xl mx-auto">
+      A&T Tech steht für Qualität, Service und Leidenschaft für Technik. Unser Team aus Experten sorgt dafür,
+      dass deine Geräte und Systeme immer auf dem neuesten Stand sind.
+    </p>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="contact" class="p-12 text-center">
+    <h3 class="text-2xl font-bold mb-4">Kontakt</h3>
+    <p class="mb-2">📍 Musterstraße 123, 12345 Musterstadt</p>
+    <p class="mb-2">📞 +49 123 456789</p>
+    <p class="mb-4">✉️ aountewstech@gmail.com</p>
+    <a href="mailto:aountewstech@gmail.com" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700">
+      E-Mail schreiben
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center p-6 bg-gray-200 mt-12">
+    <p>© 2025 A&T Tech – Alle Rechte vorbehalten.</p>
+  </footer>
+
+</body>
+</html>
