@@ -6,67 +6,66 @@
   <title>A&T Tech</title>
   <!-- Tailwind CSS über CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
-<body class="min-h-screen bg-gray-50 text-gray-800">
+<body class="min-h-screen bg-gray-50 text-gray-900">
 
   <!-- Navbar -->
-  <nav class="flex justify-between items-center p-6 bg-white shadow-md">
-    <h1 class="text-2xl font-bold text-blue-600">A&T Tech</h1>
+  <nav class="flex justify-between items-center p-6 bg-white shadow-lg sticky top-0 z-50">
+    <h1 class="text-2xl font-bold text-purple-600">A&T Tech</h1>
     <ul class="flex gap-6 font-medium">
-      <li><a href="#home" class="hover:text-blue-500">Home</a></li>
-      <li><a href="#rep" class="hover:text-blue-500">Reparaturen</a></li>
-      <li><a href="#builds" class="hover:text-blue-500">PC-Builds</a></li>
-      <li><a href="#services" class="hover:text-blue-500">Dienstleistungen</a></li>
-      <li><a href="#about" class="hover:text-blue-500">Über uns</a></li>
-      <li><a href="#contact" class="hover:text-blue-500">Kontakt</a></li>
+      <li><a href="#home" class="hover:text-purple-500 transition">Home</a></li>
+      <li><a href="#rep" class="hover:text-purple-500 transition">Reparaturen</a></li>
+      <li><a href="#builds" class="hover:text-purple-500 transition">PC-Builds</a></li>
+      <li><a href="#services" class="hover:text-purple-500 transition">Dienstleistungen</a></li>
+      <li><a href="#about" class="hover:text-purple-500 transition">Über uns</a></li>
+      <li><a href="#contact" class="hover:text-purple-500 transition">Kontakt</a></li>
     </ul>
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="flex flex-col items-center justify-center text-center py-24 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-    <h2 class="text-4xl font-bold mb-4">Willkommen bei A&T Tech</h2>
-    <p class="max-w-2xl text-lg mb-6">
+  <section id="home" class="flex flex-col items-center justify-center text-center py-24 bg-gradient-to-r from-purple-600 to-indigo-600 text-white relative overflow-hidden">
+    <h2 data-aos="fade-up" class="text-5xl font-extrabold mb-4 drop-shadow-lg">Willkommen bei A&T Tech</h2>
+    <p data-aos="fade-up" data-aos-delay="200" class="max-w-2xl text-lg mb-6 opacity-90">
       Dein Partner für PC-Reparaturen, Custom-Builds und professionelle IT-Dienstleistungen.
     </p>
-    <a href="#contact" class="px-6 py-3 bg-white text-blue-600 font-semibold rounded-xl shadow-md hover:bg-gray-100">Jetzt Kontakt aufnehmen</a>
   </section>
 
   <!-- Kategorien -->
   <section class="grid grid-cols-1 md:grid-cols-3 gap-8 p-12">
-    <div id="rep" class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition">
-      <h3 class="text-xl font-bold mb-2 text-blue-600">Reparaturen</h3>
+    <div id="rep" data-aos="zoom-in" class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
+      <h3 class="text-xl font-bold mb-2 text-purple-600">Reparaturen</h3>
       <p>Wir reparieren PCs, Laptops und Smartphones schnell & zuverlässig.</p>
     </div>
 
-    <div id="builds" class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition">
-      <h3 class="text-xl font-bold mb-2 text-blue-600">PC-Builds</h3>
+    <div id="builds" data-aos="zoom-in" data-aos-delay="200" class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
+      <h3 class="text-xl font-bold mb-2 text-purple-600">PC-Builds</h3>
       <p>Custom Gaming-PCs & Workstations – perfekt auf deine Bedürfnisse abgestimmt.</p>
     </div>
 
-    <div id="services" class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition">
-      <h3 class="text-xl font-bold mb-2 text-blue-600">Dienstleistungen</h3>
+    <div id="services" data-aos="zoom-in" data-aos-delay="400" class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
+      <h3 class="text-xl font-bold mb-2 text-purple-600">Dienstleistungen</h3>
       <p>Von Software-Setup bis Datenrettung – wir kümmern uns um alles.</p>
     </div>
   </section>
 
   <!-- Über uns -->
-  <section id="about" class="p-12 bg-gray-100 text-center">
-    <h3 class="text-2xl font-bold mb-4">Über uns</h3>
-    <p class="max-w-3xl mx-auto">
+  <section id="about" class="p-12 bg-purple-50 text-center">
+    <h3 data-aos="fade-right" class="text-3xl font-bold mb-4 text-purple-700">Über uns</h3>
+    <p data-aos="fade-left" class="max-w-3xl mx-auto text-gray-700">
       A&T Tech steht für Qualität, Service und Leidenschaft für Technik. Unser Team aus Experten sorgt dafür,
       dass deine Geräte und Systeme immer auf dem neuesten Stand sind.
     </p>
   </section>
 
   <!-- Kontakt -->
-  <section id="contact" class="p-12 text-center">
-    <h3 class="text-2xl font-bold mb-4">Kontakt</h3>
-    <p class="mb-2">📍 Innstraße 14 38120 Braunschweig</p>
-    <p class="mb-2">📞 +49 151 2831 2583</p>
-    <p class="mb-4">✉️ aountewstech@gmail.com</p>
-    <a href="mailto:aountewstech@gmail.com" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700">
-      E-Mail schreiben
-    </a>
+  <section id="contact" class="p-12 text-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+    <h3 data-aos="fade-up" class="text-3xl font-bold mb-4">Kontakt</h3>
+    <p data-aos="fade-up" data-aos-delay="200" class="mb-2">📍 Innstraße 14, 38120 Braunschweig</p>
+    <p data-aos="fade-up" data-aos-delay="400" class="mb-2">📞 +49 151 2831 2583</p>
+    <p data-aos="fade-up" data-aos-delay="600" class="mb-2">✉️ aountewstech@gmail.com</p>
   </section>
 
   <!-- Footer -->
@@ -74,5 +73,12 @@
     <p>© 2025 A&T Tech – Alle Rechte vorbehalten.</p>
   </footer>
 
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
 </body>
 </html>
+
