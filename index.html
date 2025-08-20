@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A&T Tech - Home</title>
+  <title>A&T Tech – Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body class="min-h-screen bg-gray-50 text-gray-900">
 
@@ -22,12 +24,36 @@
   </nav>
 
   <!-- Hero -->
-  <section class="flex flex-col items-center justify-center text-center py-24 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
-    <h2 class="text-5xl font-extrabold mb-4">Willkommen bei A&T Tech</h2>
-    <p class="max-w-2xl text-lg mb-6 opacity-90">
+  <section id="home" class="flex flex-col items-center justify-center text-center py-24 bg-gradient-to-r from-purple-600 to-indigo-600 text-white relative overflow-hidden">
+    <h2 data-aos="fade-up" class="text-5xl font-extrabold mb-4 drop-shadow-lg">Willkommen bei A&T Tech</h2>
+    <p data-aos="fade-up" data-aos-delay="200" class="max-w-2xl text-lg mb-6 opacity-90">
       Dein Partner für PC-Reparaturen, Custom-Builds und professionelle IT-Dienstleistungen.
     </p>
   </section>
 
+  <!-- Features -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-8 p-12">
+    <div data-aos="zoom-in" class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
+      <h3 class="text-xl font-bold mb-2 text-purple-600">Reparaturen</h3>
+      <p>Wir reparieren PCs schnell & zuverlässig.</p>
+    </div>
+    <div data-aos="zoom-in" data-aos-delay="200" class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
+      <h3 class="text-xl font-bold mb-2 text-purple-600">PC-Builds</h3>
+      <p>Custom Gaming-PCs & Workstations – perfekt auf deine Bedürfnisse abgestimmt.</p>
+    </div>
+    <div data-aos="zoom-in" data-aos-delay="400" class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
+      <h3 class="text-xl font-bold mb-2 text-purple-600">Dienstleistungen</h3>
+      <p>Von Software-Setup bis Datenrettung – wir kümmern uns um alles.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center p-6 bg-gray-200 mt-12">
+    <p>© 2025 A&T Tech – Alle Rechte vorbehalten.</p>
+  </footer>
+
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
 </body>
 </html>
