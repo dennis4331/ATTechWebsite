@@ -69,6 +69,23 @@
       }
     });
   })();
+
+  // Mobile Menü Toggle
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('menu');
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+    menu.classList.toggle('flex');
+    menu.classList.toggle('flex-col');
+    menu.classList.toggle('absolute');
+    menu.classList.toggle('top-20');
+    menu.classList.toggle('right-6');
+    menu.classList.toggle('bg-white');
+    menu.classList.toggle('dark:bg-gray-800');
+    menu.classList.toggle('p-6');
+    menu.classList.toggle('rounded-xl');
+    menu.classList.toggle('shadow-xl');
+  });
 </script>
 
 
