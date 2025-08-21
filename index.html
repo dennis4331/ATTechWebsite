@@ -37,26 +37,40 @@
 </nav>
 
 <script>
-  // Aktuelle Seite bestimmen
-  let currentPage = window.location.pathname.split("/").pop();
-
-  // Falls leer (z. B. bei Startseite "/") → auf index.html setzen
-  if (currentPage === "" || currentPage === "/") {
-    currentPage = "index.html";
-  }
-
-  // Alle Links in der Navbar durchgehen
-  document.querySelectorAll("nav a").forEach(link => {
-    const href = link.getAttribute("href");
-
-    if (href === currentPage) {
-      link.classList.add("text-purple-500", "font-bold");
-    } else {
-      // optional: sicherstellen, dass andere Links normal bleiben
-      link.classList.remove("text-purple-500", "font-bold");
+  (function () {
+    // Pfad/Href auf eine vergleichbare Form normalisieren (nur Dateiname)
+    function normalizePath(input) {
+      try {
+        const url = new URL(input, window.location.href); // macht relative Hrefs absolut
+        let path = url.pathname;
+        // Ordnerpfade wie "/foo/bar/" als "/foo/bar/index.html" behandeln
+        if (path.endsWith("/")) path += "index.html";
+        // nur den Dateinamen vergleichen
+        const file = path.split("/").pop();
+        return file || "index.html";
+      } catch (e) {
+        // Fallback (z.B. bei exotischen file://-Fällen)
+        let s = (input || "").split("#")[0].split("?")[0];
+        if (s.endsWith("/")) s += "index.html";
+        return s.split("/").pop() || "index.html";
+      }
     }
-  });
+
+    const current = normalizePath(window.location.href);
+
+    document.querySelectorAll("nav a[href]").forEach(a => {
+      const target = normalizePath(a.getAttribute("href"));
+      if (target === current) {
+        a.classList.add("text-purple-500", "font-bold");
+        a.setAttribute("aria-current", "page");
+      } else {
+        a.classList.remove("text-purple-500", "font-bold");
+        a.removeAttribute("aria-current");
+      }
+    });
+  })();
 </script>
+
 
 
   <!-- Hero -->
