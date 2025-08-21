@@ -5,15 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A&T Tech – Kontakt</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
-<body class="min-h-screen bg-gray-50 text-gray-900">
+<body class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
   <!-- Navbar -->
-  <nav class="flex justify-between items-center p-6 bg-white shadow-lg sticky top-0 z-50">
-    <h1 class="text-2xl font-bold text-purple-600">A&T Tech</h1>
-    <ul class="flex gap-6 font-medium">
+  <nav class="flex justify-between items-center p-6 bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-50">
+    <!-- Logo -->
+    <h1>
+      <img src="assets/logo.png" alt="A&T Tech Logo" class="h-10">
+    </h1>
+
+    <!-- Mobile Menü Button -->
+    <div class="flex items-center gap-4">
+      <button id="darkToggle" class="p-2 rounded-lg bg-purple-500 text-white">🌙</button>
+      <button id="menuToggle" class="md:hidden text-3xl">☰</button>
+    </div>
+
+    <!-- Menü -->
+    <ul id="menu" class="hidden md:flex gap-6 font-medium">
       <li><a href="index.html" class="hover:text-purple-500 transition">Home</a></li>
       <li><a href="reparaturen.html" class="hover:text-purple-500 transition">Reparaturen</a></li>
       <li><a href="builds.html" class="hover:text-purple-500 transition">PC-Builds</a></li>
@@ -23,40 +37,60 @@
     </ul>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="flex flex-col items-center justify-center text-center py-24 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
-    <h2 data-aos="fade-down" class="text-5xl font-extrabold mb-4">Kontaktieren Sie uns</h2>
+    <h2 data-aos="fade-down" class="text-5xl font-extrabold mb-4">Kontaktiere uns</h2>
     <p data-aos="fade-up" data-aos-delay="200" class="max-w-2xl text-lg opacity-90">
-      Du hast Fragen oder möchtest ein Angebot? Kontaktiere uns über die untenstehenden Möglichkeiten.
+      Wir freuen uns auf deine Anfrage – schreib uns oder besuche uns direkt!
     </p>
   </section>
 
-  <!-- Kontaktinfo Section -->
-  <section class="p-12 bg-purple-50 text-center">
-    <h3 data-aos="fade-right" class="text-3xl font-bold mb-8 text-purple-700">Unsere Kontaktdaten</h3>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-      <div data-aos="zoom-in" class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
-        <h4 class="text-xl font-bold text-purple-600 mb-2">Adresse</h4>
-        <p>📍 Innstraße 14, 38120 Braunschweig</p>
-      </div>
-      <div data-aos="zoom-in" data-aos-delay="200" class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
-        <h4 class="text-xl font-bold text-purple-600 mb-2">Telefon</h4>
-        <p>📞 +49 151 2831 2583</p>
-      </div>
-      <div data-aos="zoom-in" data-aos-delay="400" class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
-        <h4 class="text-xl font-bold text-purple-600 mb-2">E-Mail</h4>
-        <p>✉️ aountewstech@gmail.com</p>
-      </div>
+  <!-- Kontaktformular + Map -->
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-8 p-12">
+    <!-- Kontaktformular -->
+    <div data-aos="fade-right" class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+      <h3 class="text-2xl font-bold mb-4 text-purple-600">Schreib uns</h3>
+      <form class="flex flex-col gap-4">
+        <input type="text" placeholder="Dein Name" class="p-3 rounded-lg border dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+        <input type="email" placeholder="Deine E-Mail" class="p-3 rounded-lg border dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+        <textarea placeholder="Deine Nachricht" rows="5" class="p-3 rounded-lg border dark:border-gray-700 bg-gray-50 dark:bg-gray-900"></textarea>
+        <button class="bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition">Absenden</button>
+      </form>
+    </div>
+
+    <!-- Google Maps -->
+    <div data-aos="fade-left" class="rounded-2xl overflow-hidden shadow-xl">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999581785959!2d2.292292615674241!3d48.858373079287854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdaaa12345%3A0x123456789abcdef!2sEiffelturm!5e0!3m2!1sde!2sde!4v1675612345678!5m2!1sde!2sde" 
+        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center p-6 bg-gray-200 mt-12">
+  <footer class="text-center p-6 bg-gray-200 dark:bg-gray-700 mt-12">
     <p>© 2025 A&T Tech – Alle Rechte vorbehalten.</p>
   </footer>
 
   <script>
+    // AOS Init
     AOS.init({ duration: 1000, once: true });
+
+    // Dark Mode Toggle
+    const btn = document.getElementById('darkToggle');
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+
+    // Mobile Menü Toggle
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+      menu.classList.toggle('flex-col');
+    });
   </script>
 </body>
 </html>
+
