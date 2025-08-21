@@ -74,10 +74,11 @@
     AOS.init({ duration: 1000, once: true });
 
     // Dark Mode Toggle
-    const btn = document.getElementById('darkToggle');
-    btn.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-    });
+ const btn = document.getElementById('darkToggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+});
+
 
     // Mobile Menü Toggle
     const toggle = document.getElementById('menuToggle');
