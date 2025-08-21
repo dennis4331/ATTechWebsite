@@ -15,13 +15,15 @@
 
   <!-- Navbar -->
 <!-- Navbar -->
+<!-- Navbar -->
 <nav class="flex justify-between items-center p-6 bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-50">
-  <!-- Logo -->
- <a href="index.html">
-  <img src="Bilder/WhatsApp Bild 2025-08-19 um 11.43.56_d590e906.jpg" alt="A&T Tech Logo" class="h-10">
-</a>
+  
+  <!-- Logo klickbar -->
+  <a href="index.html" class="flex items-center gap-2">
+    <img src="assets/logo.png" alt="A&T Tech Logo" class="h-10">
+  </a>
 
-  <!-- Menü -->
+  <!-- Menü Desktop -->
   <ul id="menu" class="hidden md:flex gap-6 font-medium">
     <li><a href="index.html" class="hover:text-purple-500 transition">Home</a></li>
     <li><a href="reparaturen.html" class="hover:text-purple-500 transition">Reparaturen</a></li>
@@ -30,26 +32,46 @@
     <li><a href="contact.html" class="hover:text-purple-500 transition">Kontakt</a></li>
   </ul>
 
-  <!-- Dark Mode Button -->
-  <button id="darkToggle" class="ml-6 px-4 py-2 rounded-lg bg-purple-600 text-white hover:bg-purple-700 transition">
-    🌙
-  </button>
+  <!-- Buttons rechts -->
+  <div class="flex items-center gap-4">
+    <!-- Dark Mode -->
+    <button id="darkToggle" class="p-2 rounded-lg bg-purple-500 text-white">🌙</button>
+    <!-- Hamburger nur auf Handy -->
+    <button id="menuToggle" class="md:hidden text-3xl text-gray-900 dark:text-gray-100">☰</button>
+  </div>
 </nav>
 
+<!-- Mobiles Menü (Standard versteckt) -->
+<ul id="mobileMenu" class="hidden flex-col gap-4 font-medium p-6 bg-white dark:bg-gray-800 rounded-xl shadow-xl absolute top-20 right-6 z-50">
+  <li><a href="index.html" class="hover:text-purple-500 transition">Home</a></li>
+  <li><a href="reparaturen.html" class="hover:text-purple-500 transition">Reparaturen</a></li>
+  <li><a href="builds.html" class="hover:text-purple-500 transition">PC-Builds</a></li>
+  <li><a href="about.html" class="hover:text-purple-500 transition">Über uns</a></li>
+  <li><a href="contact.html" class="hover:text-purple-500 transition">Kontakt</a></li>
+</ul>
+
+<!-- Scripts -->
 <script>
+  // Mobile-Menü toggeln
+  document.getElementById("menuToggle").addEventListener("click", () => {
+    document.getElementById("mobileMenu").classList.toggle("hidden");
+  });
+
+  // Dark Mode toggeln
+  document.getElementById("darkToggle").addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+  });
+
+  // Aktive Seite markieren
   (function () {
-    // Pfad/Href auf eine vergleichbare Form normalisieren (nur Dateiname)
     function normalizePath(input) {
       try {
-        const url = new URL(input, window.location.href); // macht relative Hrefs absolut
+        const url = new URL(input, window.location.href);
         let path = url.pathname;
-        // Ordnerpfade wie "/foo/bar/" als "/foo/bar/index.html" behandeln
         if (path.endsWith("/")) path += "index.html";
-        // nur den Dateinamen vergleichen
         const file = path.split("/").pop();
         return file || "index.html";
       } catch (e) {
-        // Fallback (z.B. bei exotischen file://-Fällen)
         let s = (input || "").split("#")[0].split("?")[0];
         if (s.endsWith("/")) s += "index.html";
         return s.split("/").pop() || "index.html";
@@ -69,24 +91,8 @@
       }
     });
   })();
-
-  // Mobile Menü Toggle
-  const toggle = document.getElementById('menuToggle');
-  const menu = document.getElementById('menu');
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-    menu.classList.toggle('flex');
-    menu.classList.toggle('flex-col');
-    menu.classList.toggle('absolute');
-    menu.classList.toggle('top-20');
-    menu.classList.toggle('right-6');
-    menu.classList.toggle('bg-white');
-    menu.classList.toggle('dark:bg-gray-800');
-    menu.classList.toggle('p-6');
-    menu.classList.toggle('rounded-xl');
-    menu.classList.toggle('shadow-xl');
-  });
 </script>
+
 
 
 
