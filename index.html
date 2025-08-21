@@ -71,16 +71,39 @@
     <p>© 2025 A&T Tech – Alle Rechte vorbehalten.</p>
   </footer>
 
-  <script>
+<script>
     // AOS Init
     AOS.init({ duration: 1000, once: true });
 
-    // Dark Mode Toggle
+    // Dark Mode Toggle mit Icon & LocalStorage
     const btn = document.getElementById('darkToggle');
-btn.addEventListener('click', () => {
-  document.documentElement.classList.toggle('dark');
-});
 
+    function updateIcon() {
+      if (document.documentElement.classList.contains('dark')) {
+        btn.textContent = "☀️";
+      } else {
+        btn.textContent = "🌙";
+      }
+    }
+
+    // gespeichertes Theme prüfen
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+
+    updateIcon();
+
+    btn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+
+      if (document.documentElement.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+
+      updateIcon();
+    });
 
     // Mobile Menü Toggle
     const toggle = document.getElementById('menuToggle');
