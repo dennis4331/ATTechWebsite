@@ -36,16 +36,27 @@
 </nav>
 
 <script>
-  
+  // Aktuelle Seite bestimmen
+  let currentPage = window.location.pathname.split("/").pop();
 
-  // Aktive Seite markieren
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  // Falls leer (z. B. bei Startseite "/") → auf index.html setzen
+  if (currentPage === "" || currentPage === "/") {
+    currentPage = "index.html";
+  }
+
+  // Alle Links in der Navbar durchgehen
   document.querySelectorAll("nav a").forEach(link => {
-    if (link.getAttribute("href") === currentPage) {
+    const href = link.getAttribute("href");
+
+    if (href === currentPage) {
       link.classList.add("text-purple-500", "font-bold");
+    } else {
+      // optional: sicherstellen, dass andere Links normal bleiben
+      link.classList.remove("text-purple-500", "font-bold");
     }
   });
 </script>
+
 
   <!-- Hero -->
   <section class="flex flex-col items-center justify-center text-center py-24 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
