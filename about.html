@@ -14,6 +14,7 @@
 <body class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
 <!-- Navbar -->
+
 <nav class="flex justify-between items-center p-6 bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-50">
   <!-- Logo -->
   <h1>
@@ -21,24 +22,31 @@
   </h1>
 
   <!-- Menü -->
-  <ul id="menu" class="hidden md:flex gap-6 font-medium items-center">
+  <ul id="menu" class="hidden md:flex gap-6 font-medium">
     <li><a href="index.html" class="hover:text-purple-500 transition">Home</a></li>
-    <li><a href="reparaturen.html" class="hover:text-purple-500 transition">Reparatur</a></li>
+    <li><a href="reparaturen.html" class="hover:text-purple-500 transition">Reparaturen</a></li>
     <li><a href="builds.html" class="hover:text-purple-500 transition">PC-Builds</a></li>
     <li><a href="about.html" class="hover:text-purple-500 transition">Über uns</a></li>
-    <li><a href="contact.html" class="hover:text-purple-500 transition font-bold">Kontakt</a></li>
-
-    <!-- Dark Mode Button direkt neben Kontakt -->
-    <li>
-      <button id="darkToggle" class="ml-4 p-2 rounded-lg bg-purple-500 text-white hover:bg-purple-600 transition">
-        🌙
-      </button>
-    </li>
+    <li><a href="contact.html" class="hover:text-purple-500 transition">Kontakt</a></li>
   </ul>
 
-  <!-- Mobile Menü Button -->
-  <button id="menuToggle" class="md:hidden text-3xl">☰</button>
+  <!-- Dark Mode Button -->
+  <button id="darkToggle" class="ml-6 px-4 py-2 rounded-lg bg-purple-600 text-white hover:bg-purple-700 transition">
+    🌙
+  </button>
 </nav>
+
+<script>
+  
+
+  // Aktive Seite markieren
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll("nav a").forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("text-purple-500", "font-bold");
+    }
+  });
+</script>
 
 
   <!-- Hero -->
