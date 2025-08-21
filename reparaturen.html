@@ -5,15 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A&T Tech – Reparaturen</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
-<body class="min-h-screen bg-gray-50 text-gray-900">
+<body class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
   <!-- Navbar -->
-  <nav class="flex justify-between items-center p-6 bg-white shadow-lg sticky top-0 z-50">
-    <h1 class="text-2xl font-bold text-purple-600">A&T Tech</h1>
-    <ul class="flex gap-6 font-medium">
+  <nav class="flex justify-between items-center p-6 bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-50">
+    <!-- Logo -->
+    <h1>
+      <img src="assets/logo.png" alt="A&T Tech Logo" class="h-10">
+    </h1>
+
+    <!-- Mobile Menü Button -->
+    <div class="flex items-center gap-4">
+      <button id="darkToggle" class="p-2 rounded-lg bg-purple-500 text-white">🌙</button>
+      <button id="menuToggle" class="md:hidden text-3xl">☰</button>
+    </div>
+
+    <!-- Menü -->
+    <ul id="menu" class="hidden md:flex gap-6 font-medium">
       <li><a href="index.html" class="hover:text-purple-500 transition">Home</a></li>
       <li><a href="reparaturen.html" class="hover:text-purple-500 transition font-bold">Reparaturen</a></li>
       <li><a href="builds.html" class="hover:text-purple-500 transition">PC-Builds</a></li>
@@ -33,27 +47,46 @@
 
   <!-- Reparaturarten -->
   <section class="grid grid-cols-1 md:grid-cols-3 gap-8 p-12">
-    <div data-aos="fade-right" class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
+    <div data-aos="fade-right" class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
+      <img src="assets/pc-repair.jpg" alt="PC Reparatur" class="rounded-lg mb-4">
       <h3 class="text-xl font-bold mb-2 text-purple-600">PC Reparatur</h3>
       <p>Hardware- & Software-Probleme schnell behoben.</p>
     </div>
-    <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
+    <div data-aos="fade-up" data-aos-delay="200" class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
+      <img src="assets/laptop-repair.jpg" alt="Laptop Reparatur" class="rounded-lg mb-4">
       <h3 class="text-xl font-bold mb-2 text-purple-600">Laptop Reparatur</h3>
       <p>Von Display bis Mainboard – wir kümmern uns um alles.</p>
     </div>
-    <div data-aos="fade-left" data-aos-delay="400" class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
+    <div data-aos="fade-left" data-aos-delay="400" class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
+      <img src="assets/phone-repair.jpg" alt="Smartphone Reparatur" class="rounded-lg mb-4">
       <h3 class="text-xl font-bold mb-2 text-purple-600">Smartphone Reparatur</h3>
       <p>Displays, Akku oder Software – schnell wieder einsatzbereit.</p>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center p-6 bg-gray-200 mt-12">
+  <footer class="text-center p-6 bg-gray-200 dark:bg-gray-700 mt-12">
     <p>© 2025 A&T Tech – Alle Rechte vorbehalten.</p>
   </footer>
 
   <script>
+    // AOS Init
     AOS.init({ duration: 1000, once: true });
+
+    // Dark Mode Toggle
+    const btn = document.getElementById('darkToggle');
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+
+    // Mobile Menü Toggle
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+      menu.classList.toggle('flex-col');
+    });
   </script>
 </body>
 </html>
