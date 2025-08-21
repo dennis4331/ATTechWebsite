@@ -5,15 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A&T Tech – Über uns</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
-<body class="min-h-screen bg-gray-50 text-gray-900">
+<body class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
   <!-- Navbar -->
-  <nav class="flex justify-between items-center p-6 bg-white shadow-lg sticky top-0 z-50">
-    <h1 class="text-2xl font-bold text-purple-600">A&T Tech</h1>
-    <ul class="flex gap-6 font-medium">
+  <nav class="flex justify-between items-center p-6 bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-50">
+    <!-- Logo -->
+    <h1>
+      <img src="assets/logo.png" alt="A&T Tech Logo" class="h-10">
+    </h1>
+
+    <!-- Mobile Menü Button -->
+    <div class="flex items-center gap-4">
+      <button id="darkToggle" class="p-2 rounded-lg bg-purple-500 text-white">🌙</button>
+      <button id="menuToggle" class="md:hidden text-3xl">☰</button>
+    </div>
+
+    <!-- Menü -->
+    <ul id="menu" class="hidden md:flex gap-6 font-medium">
       <li><a href="index.html" class="hover:text-purple-500 transition">Home</a></li>
       <li><a href="reparaturen.html" class="hover:text-purple-500 transition">Reparaturen</a></li>
       <li><a href="builds.html" class="hover:text-purple-500 transition">PC-Builds</a></li>
@@ -23,37 +37,53 @@
     </ul>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="flex flex-col items-center justify-center text-center py-24 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
-    <h2 data-aos="fade-down" class="text-5xl font-extrabold mb-4">Über A&T Tech</h2>
+    <h2 data-aos="fade-down" class="text-5xl font-extrabold mb-4">Über uns</h2>
     <p data-aos="fade-up" data-aos-delay="200" class="max-w-2xl text-lg opacity-90">
-      Qualität, Service und Leidenschaft für Technik – unser Team sorgt dafür, dass deine Geräte immer auf dem neuesten Stand sind.
+      Lerne das Team von A&T Tech kennen und erfahre, was uns antreibt.
     </p>
   </section>
 
-  <!-- Team / Info Section -->
- <section class="p-12 bg-purple-50 text-center">
-  <h3 data-aos="fade-right" class="text-3xl font-bold mb-8 text-purple-700">Unser Team</h3>
-  <div class="flex flex-col md:flex-row gap-8">
-    <div data-aos="zoom-in" class="flex-1 bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
-      <h4 class="text-xl font-bold text-purple-600 mb-2">Ilias Aoun</h4>
-      <p>Gründer & IT-Experte – spezialisiert auf Hardware und Custom Builds.</p>
+  <!-- Content -->
+  <section class="p-12 grid md:grid-cols-2 gap-12 items-center">
+    <img src="assets/team.jpg" alt="Unser Team" class="rounded-2xl shadow-xl" data-aos="fade-right">
+    <div data-aos="fade-left">
+      <h3 class="text-2xl font-bold mb-4 text-purple-600">Unsere Mission</h3>
+      <p class="mb-4">
+        Wir sind Technikbegeisterte mit dem Ziel, die beste Lösung für unsere Kunden zu bieten.
+        Egal ob Reparaturen, Gaming-PCs oder IT-Support – wir sind für dich da.
+      </p>
+      <p>
+        Mit jahrelanger Erfahrung und Leidenschaft für Technik bringen wir dein System wieder
+        auf Höchstleistung.
+      </p>
     </div>
-    <div data-aos="zoom-in" data-aos-delay="400" class="flex-1 bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300">
-      <h4 class="text-xl font-bold text-purple-600 mb-2">Dennis Tews</h4>
-      <p>Gründer & IT-Experte – spezialisiert auf Hardware und Custom Builds.</p>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Footer -->
-  <footer class="text-center p-6 bg-gray-200 mt-12">
+  <footer class="text-center p-6 bg-gray-200 dark:bg-gray-700 mt-12">
     <p>© 2025 A&T Tech – Alle Rechte vorbehalten.</p>
   </footer>
 
   <script>
+    // AOS Init
     AOS.init({ duration: 1000, once: true });
+
+    // Dark Mode Toggle
+    const btn = document.getElementById('darkToggle');
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+
+    // Mobile Menü Toggle
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+      menu.classList.toggle('flex-col');
+    });
   </script>
 </body>
 </html>
