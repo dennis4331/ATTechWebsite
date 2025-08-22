@@ -127,6 +127,40 @@ button:hover .svg-wrapper {
 button:hover svg {
   transform: rotate(360deg);
 }
+button.discord-btn {
+  font-family: inherit;
+  font-size: 16px; /* gleich groß wie die Nav-Links */
+  background: transparent;
+  color: #5865F2; /* Discord-Blau */
+  padding: 0;
+  display: flex;
+  align-items: center;
+  border: none;
+  box-shadow: none;
+  transition: color 0.3s;
+}
+
+button.discord-btn span {
+  margin-left: 0.3em;
+}
+
+button.discord-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: #5865F2;
+  transition: transform 0.3s;
+}
+
+button.discord-btn:hover {
+  color: #8ea1f2;
+}
+
+button.discord-btn:hover svg {
+  transform: rotate(360deg);
+}
+
+
+  
 </style>
 <!-- Scripts -->
 <script>
