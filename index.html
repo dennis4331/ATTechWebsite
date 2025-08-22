@@ -150,45 +150,7 @@
   </li>
 </ul>
 
-
-
-
-
-
-  <!-- Hero -->
-  <section id="home" class="flex flex-col items-center justify-center text-center py-24 bg-gradient-to-r from-purple-600 to-indigo-600 text-white relative overflow-hidden">
-    <h2 data-aos="fade-up" class="text-5xl font-extrabold mb-4 drop-shadow-lg">Willkommen bei A&T Tech</h2>
-    <p data-aos="fade-up" data-aos-delay="200" class="max-w-2xl text-lg mb-6 opacity-90">
-      Dein Partner für PC-Reparaturen, Custom-Builds und professionelle IT-Dienstleistungen.
-    </p>
-  </section>
-
-  <!-- Features -->
- <section class="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 w-full">
-  
-  <!-- Reparaturen -->
-  <a href="reparaturen.html" 
-     class="bg-gray-800 hover:bg-gray-700 transition p-6 rounded-2xl shadow-lg flex flex-col justify-between h-full">
-    <h3 class="text-2xl font-bold text-purple-500">Reparatur</h3>
-    <p class="text-gray-300 mt-4">Wir reparieren PCs schnell & zuverlässig.</p>
-  </a>
-
-  <!-- PC-Builds -->
-  <a href="builds.html" 
-     class="bg-gray-800 hover:bg-gray-700 transition p-6 rounded-2xl shadow-lg flex flex-col justify-between h-full">
-    <h3 class="text-2xl font-bold text-purple-500">PC-Builds</h3>
-    <p class="text-gray-300 mt-4">Custom Gaming-PCs & Workstations – perfekt auf deine Bedürfnisse abgestimmt.</p>
-  </a>
-
-</section>
-
-
-
-  <!-- Footer -->
-  <footer class="text-center p-6 bg-gray-200 dark:bg-gray-700 mt-12">
-    <p>© 2025 A&T Tech – Alle Rechte vorbehalten.</p>
-  </footer>
-<script type="module">
+  <script type="module">
   // Firebase SDKs importieren
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } 
@@ -267,6 +229,45 @@
     });
   })();
 
+  </script>
+
+
+
+  <!-- Hero -->
+  <section id="home" class="flex flex-col items-center justify-center text-center py-24 bg-gradient-to-r from-purple-600 to-indigo-600 text-white relative overflow-hidden">
+    <h2 data-aos="fade-up" class="text-5xl font-extrabold mb-4 drop-shadow-lg">Willkommen bei A&T Tech</h2>
+    <p data-aos="fade-up" data-aos-delay="200" class="max-w-2xl text-lg mb-6 opacity-90">
+      Dein Partner für PC-Reparaturen, Custom-Builds und professionelle IT-Dienstleistungen.
+    </p>
+  </section>
+
+  <!-- Features -->
+ <section class="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 w-full">
+  
+  <!-- Reparaturen -->
+  <a href="reparaturen.html" 
+     class="bg-gray-800 hover:bg-gray-700 transition p-6 rounded-2xl shadow-lg flex flex-col justify-between h-full">
+    <h3 class="text-2xl font-bold text-purple-500">Reparatur</h3>
+    <p class="text-gray-300 mt-4">Wir reparieren PCs schnell & zuverlässig.</p>
+  </a>
+
+  <!-- PC-Builds -->
+  <a href="builds.html" 
+     class="bg-gray-800 hover:bg-gray-700 transition p-6 rounded-2xl shadow-lg flex flex-col justify-between h-full">
+    <h3 class="text-2xl font-bold text-purple-500">PC-Builds</h3>
+    <p class="text-gray-300 mt-4">Custom Gaming-PCs & Workstations – perfekt auf deine Bedürfnisse abgestimmt.</p>
+  </a>
+
+</section>
+
+
+
+  <!-- Footer -->
+  <footer class="text-center p-6 bg-gray-200 dark:bg-gray-700 mt-12">
+    <p>© 2025 A&T Tech – Alle Rechte vorbehalten.</p>
+  </footer>
+
+<script>
     // AOS Init
     AOS.init({ duration: 1000, once: true });
 
