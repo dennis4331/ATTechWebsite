@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A&T Tech – Gaming PCs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+  <!-- Navbar wie in builds.html -->
+  <nav class="flex justify-between items-center p-6 bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-50">
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="Bilder/WhatsApp Bild 2025-08-19 um 11.43.56_d590e906.jpg" alt="A&T Tech Logo" class="h-10">
+    </a>
+    <ul class="hidden md:flex gap-6 font-medium">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="reparaturen.html">Reparaturen</a></li>
+      <li><a href="builds.html" class="text-purple-500 font-bold">PC-Builds</a></li>
+      <li><a href="about.html">Über uns</a></li>
+      <li><a href="contact.html">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="text-center py-20 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+    <h1 class="text-4xl font-extrabold mb-4">Gaming PCs</h1>
+    <p class="text-lg">Unsere beliebtesten vorkonfigurierten Gaming-Systeme</p>
+  </section>
+
+  <!-- Produktliste -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-8 p-12">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+      <img src="Bilder/pc1.png" alt="Gaming PC Ryzen 7" class="rounded-lg mb-4">
+      <h3 class="text-xl font-bold mb-2">Gaming PC Ryzen 7 7800X3D</h3>
+      <ul class="text-sm text-gray-600 dark:text-gray-300 mb-4 list-disc list-inside">
+        <li>AMD Ryzen 7 7800X3D</li>
+        <li>RTX 5070Ti 16GB</li>
+        <li>32GB DDR5 RAM</li>
+        <li>2TB NVMe SSD</li>
+      </ul>
+      <p class="text-2xl font-bold text-green-600 mb-4">1.849 €</p>
+      <a href="configurator.html?pc=7800x3d" class="bg-purple-600 text-white px-6 py-2 rounded-lg">Konfigurieren</a>
+    </div>
+
+    <!-- weitere PCs hier -->
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center p-6 bg-gray-200 dark:bg-gray-700">
+    © 2025 A&T Tech – Alle Rechte vorbehalten.
+  </footer>
+</body>
+</html>
