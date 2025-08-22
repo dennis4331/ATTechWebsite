@@ -73,18 +73,6 @@
     </li>
   </ul>
 
-  <!-- Rechts: Login / Logout (nur auf PC sichtbar) -->
-<div class="hidden md:flex items-center gap-3">
-  <button id="google-login-desktop" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-500 transition">
-    Mit Google anmelden
-  </button>
-
-  <button id="logout-desktop" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-500 transition hidden">
-    Abmelden
-  </button>
-
-  <p id="status-desktop" class="text-sm text-gray-600 dark:text-gray-300">Nicht eingeloggt</p>
-</div>
 
   <div class="flex items-center gap-3 md:hidden">
     <!-- Dark Mode Button (mobil) -->
@@ -141,17 +129,7 @@
       </a>
     </li>
    <!-- Login nur für Mobile -->
-  <li class="mt-2 >
-     <div class="flex flex-col gap-2">
-      <button id="google-login-mobile" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-500 transition">
-        Mit Google anmelden
-      </button>
-      <button id="logout-mobile" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-500 transition hidden">
-        Abmelden
-      </button>
-      <p id="status-mobile" class="text-sm text-gray-600 dark:text-gray-300">Nicht eingeloggt</p>
-    </div>
-  </li>
+
 </ul>
 
   <script type="module">
