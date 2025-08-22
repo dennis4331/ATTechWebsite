@@ -82,52 +82,7 @@
   <li><a href="contact.html" class="hover:text-purple-500 transition">Kontakt</a></li>
      
 </ul>
-<script type="module">
-  // Firebase SDKs importieren
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } 
-    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-  // Dein Firebase Config (aus Console kopieren!)
-  const firebaseConfig = {
-    apiKey: "DEIN_API_KEY",
-    authDomain: "DEIN_PROJEKT.firebaseapp.com",
-    projectId: "DEIN_PROJEKT_ID",
-    storageBucket: "DEIN_PROJEKT.appspot.com",
-    messagingSenderId: "DEIN_ID",
-    appId: "DEINE_APP_ID"
-  };
-
-  // Initialisieren
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
-
-  // Login mit Google
-  document.getElementById("google-login").addEventListener("click", async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      console.log("Eingeloggt:", result.user);
-    } catch (error) {
-      console.error(error);
-    }
-  });
-
-  // Logout
-  document.getElementById("logout").addEventListener("click", async () => {
-    await signOut(auth);
-    console.log("Abgemeldet");
-  });
-
-  // Beobachten ob jemand eingeloggt ist
-  onAuthStateChanged(auth, user => {
-    if (user) {
-      document.getElementById("status").textContent = "Hallo " + user.displayName;
-    } else {
-      document.getElementById("status").textContent = "Nicht eingeloggt";
-    }
-  });
-</script>
 
 
 <!-- Scripts -->
