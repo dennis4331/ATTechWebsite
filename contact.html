@@ -227,6 +227,48 @@
       }
     });
   })();
+
+    // AOS Init
+    AOS.init({ duration: 1000, once: true });
+
+    // Dark Mode Toggle mit Icon & LocalStorage
+    const btn = document.getElementById('darkToggle');
+
+    function updateIcon() {
+      if (document.documentElement.classList.contains('dark')) {
+        btn.textContent = "☀️";
+      } else {
+        btn.textContent = "🌙";
+      }
+    }
+
+    // gespeichertes Theme prüfen
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+
+    updateIcon();
+
+    btn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+
+      if (document.documentElement.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+
+      updateIcon();
+    });
+
+   // Mobile Menü öffnen/schließen
+const toggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+
+toggle.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
+  
 </script>
 
 
@@ -263,48 +305,6 @@
     <p>© 2025 A&T Tech – Alle Rechte vorbehalten.</p>
   </footer>
 
-  <script>
-    // AOS Init
-    AOS.init({ duration: 1000, once: true });
 
-    // Dark Mode Toggle mit Icon & LocalStorage
-    const btn = document.getElementById('darkToggle');
-
-    function updateIcon() {
-      if (document.documentElement.classList.contains('dark')) {
-        btn.textContent = "☀️";
-      } else {
-        btn.textContent = "🌙";
-      }
-    }
-
-    // gespeichertes Theme prüfen
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark');
-    }
-
-    updateIcon();
-
-    btn.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-
-      if (document.documentElement.classList.contains('dark')) {
-        localStorage.setItem('theme', 'dark');
-      } else {
-        localStorage.setItem('theme', 'light');
-      }
-
-      updateIcon();
-    });
-
-    // Mobile Menü Toggle
-    const toggle = document.getElementById('menuToggle');
-    const menu = document.getElementById('menu');
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-      menu.classList.toggle('flex');
-      menu.classList.toggle('flex-col');
-    });
-  </script>
 </body>
 </html>
