@@ -96,17 +96,23 @@
   <li><a href="builds.html" class="hover:text-purple-500 transition">PC-Builds</a></li>
   <li><a href="about.html" class="hover:text-purple-500 transition">Über uns</a></li>
   <li><a href="contact.html" class="hover:text-purple-500 transition">Kontakt</a></li>
-    <div class="flex items-center gap-3">
-    <button id="google-login" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-500 transition">
-      Mit Google anmelden
-    </button>
+    <li>
+    <div class="flex flex-col gap-2">
+      <button id="google-login" 
+              class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-500 transition">
+        Mit Google anmelden
+      </button>
 
-    <button id="logout" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-500 transition hidden">
-      Abmelden
-    </button>
+      <button id="logout" 
+              class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-500 transition hidden">
+        Abmelden
+      </button>
 
-    <p id="status" class="text-sm text-gray-600 dark:text-gray-300">Nicht eingeloggt</p>
-  </div> 
+      <p id="status" class="text-sm text-gray-600 dark:text-gray-300">
+        Nicht eingeloggt
+      </p>
+    </div>
+  </li>
 </ul>
 <script type="module">
   // Firebase SDKs importieren
