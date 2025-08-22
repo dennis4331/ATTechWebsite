@@ -88,7 +88,7 @@
 
   <div class="flex items-center gap-3 md:hidden">
     <!-- Dark Mode Button (mobil) -->
-    <button id="darkToggle" class="text-xl">🌙</button>
+    <button id="darkToggleMobile" class="text-xl">🌙</button>
   
  <button id="menuToggle" class="md:hidden flex flex-col gap-1 p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
     <span class="w-6 h-0.5 bg-gray-800 dark:bg-gray-200"></span>
@@ -275,35 +275,48 @@
     // AOS Init
     AOS.init({ duration: 1000, once: true });
 
-    // Dark Mode Toggle mit Icon & LocalStorage
-    const btn = document.getElementById('darkToggle');
 
-    function updateIcon() {
-      if (document.documentElement.classList.contains('dark')) {
-        btn.textContent = "☀️";
-      } else {
-        btn.textContent = "🌙";
-      }
+  document.addEventListener("DOMContentLoaded", () => {
+    // Beide Buttons holen (Desktop & Mobile)
+    const btns = [
+      document.getElementById("darkToggle"),
+      document.getElementById("darkToggleMobile")
+    ];
+
+    // Funktion Icon setzen
+    function updateIcons() {
+      btns.forEach(btn => {
+        if (btn) {
+          btn.textContent = document.documentElement.classList.contains("dark")
+            ? "☀️"
+            : "🌙";
+        }
+      });
     }
 
-    // gespeichertes Theme prüfen
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark');
+    // Prüfen ob Darkmode gespeichert ist
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.classList.add("dark");
     }
 
-    updateIcon();
+    // Icons beim Laden updaten
+    updateIcons();
 
-    btn.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-
-      if (document.documentElement.classList.contains('dark')) {
-        localStorage.setItem('theme', 'dark');
-      } else {
-        localStorage.setItem('theme', 'light');
-      }
-
-      updateIcon();
+    // Click-Event für beide Buttons
+    btns.forEach(btn => {
+      if (!btn) return;
+      btn.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
+        localStorage.setItem(
+          "theme",
+          document.documentElement.classList.contains("dark") ? "dark" : "light"
+        );
+        updateIcons();
+      });
     });
+  });
+
+
 
    // Mobile Menü öffnen/schließen
 const toggle = document.getElementById('menuToggle');
