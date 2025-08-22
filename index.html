@@ -168,18 +168,22 @@
     const btnLogoutMobile = document.getElementById("netlify-logout-mobile");
     const statusMobile = document.getElementById("status-mobile");
 
-    function updateUI(user) {
-      const loggedIn = !!user;
-      // Desktop
-      if (btnLoginDesktop) btnLoginDesktop.classList.toggle("hidden", loggedIn);
-      if (btnLogoutDesktop) btnLogoutDesktop.classList.toggle("hidden", !loggedIn);
-      if (statusDesktop) statusDesktop.textContent = loggedIn ? ("Hallo " + (user.user_metadata?.full_name || user.email || user?.user_id)) : "Nicht eingeloggt";
+  function updateUI(user) {
+  const loggedIn = !!user;
 
-      // Mobile
-      if (btnLoginMobile) btnLoginMobile.classList.toggle("hidden", loggedIn);
-      if (btnLogoutMobile) btnLogoutMobile.classList.toggle("hidden", !loggedIn);
-      if (statusMobile) statusMobile.textContent = loggedIn ? ("Hallo " + (user.user_metadata?.full_name || user.email || user?.user_id)) : "Nicht eingeloggt";
-    }
+  // Benutzername oder E-Mail
+  const name = user?.user_metadata?.full_name || user?.email || "User";
+
+  // Desktop
+  btnLoginDesktop.classList.toggle("hidden", loggedIn);
+  btnLogoutDesktop.classList.toggle("hidden", !loggedIn);
+  statusDesktop.textContent = loggedIn ? ("Hallo " + name) : "Nicht eingeloggt";
+
+  // Mobile
+  btnLoginMobile.classList.toggle("hidden", loggedIn);
+  btnLogoutMobile.classList.toggle("hidden", !loggedIn);
+  statusMobile.textContent = loggedIn ? ("Hallo " + name) : "Nicht eingeloggt";
+}
 
     // Events
     netlifyIdentity.on("init", user => updateUI(user));
@@ -205,22 +209,6 @@
       updateUI(netlifyIdentity.currentUser());
     }
   }
-function updateUI(user) {
-  const loggedIn = !!user;
-
-  // Benutzername oder E-Mail
-  const name = user?.user_metadata?.full_name || user?.email || "User";
-
-  // Desktop
-  btnLoginDesktop.classList.toggle("hidden", loggedIn);
-  btnLogoutDesktop.classList.toggle("hidden", !loggedIn);
-  statusDesktop.textContent = loggedIn ? ("Hallo " + name) : "Nicht eingeloggt";
-
-  // Mobile
-  btnLoginMobile.classList.toggle("hidden", loggedIn);
-  btnLogoutMobile.classList.toggle("hidden", !loggedIn);
-  statusMobile.textContent = loggedIn ? ("Hallo " + name) : "Nicht eingeloggt";
-}
 
   
 </script>
