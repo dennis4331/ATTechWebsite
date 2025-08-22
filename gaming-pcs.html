@@ -19,14 +19,12 @@
   </a>
 
   <!-- Menü in der Mitte -->
-  <ul id="menu" class="hidden md:flex text-xl gap-6 font-medium mx-auto items-center">
-    <!-- Darkmode Button links neben Home -->
-    <li>
-      <button id="darkToggle"
-        class="px-3 py-1 rounded-lg bg-gray-200 dark:bg-gray-700 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600 transition">
-        🌙
-      </button>
-    </li>
+<li class="hidden md:block">
+  <button id="darkToggle"
+    class="px-3 py-1 rounded-lg bg-gray-200 dark:bg-gray-700 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+    🌙
+  </button>
+</li>
 
     <li><a href="index.html" class="hover:text-purple-500 transition">Home</a></li>
     <li><a href="reparaturen.html" class="hover:text-purple-500 transition">Reparaturen</a></li>
@@ -393,16 +391,14 @@
     // AOS Init
     AOS.init({ duration: 1000, once: true });
 
-   // Dark Mode Toggle mit Icon & LocalStorage
+
   const btn = document.getElementById("darkToggle");
 
   function updateIcon() {
-    if (!btn) return; // <-- Schutz
-    if (document.documentElement.classList.contains("dark")) {
-      btn.textContent = "☀️";
-    } else {
-      btn.textContent = "🌙";
-    }
+    if (!btn) return; // Falls Button fehlt (z. B. Mobile)
+    btn.textContent = document.documentElement.classList.contains("dark")
+      ? "☀️"
+      : "🌙";
   }
 
   // gespeichertes Theme prüfen
@@ -415,13 +411,10 @@
   if (btn) {
     btn.addEventListener("click", () => {
       document.documentElement.classList.toggle("dark");
-
-      if (document.documentElement.classList.contains("dark")) {
-        localStorage.setItem("theme", "dark");
-      } else {
-        localStorage.setItem("theme", "light");
-      }
-
+      localStorage.setItem(
+        "theme",
+        document.documentElement.classList.contains("dark") ? "dark" : "light"
+      );
       updateIcon();
     });
   }
