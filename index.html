@@ -98,7 +98,6 @@
 
 
 
-<!-- Mobiles Menü -->
 <ul id="mobileMenu" class="hidden flex-col gap-4 font-medium p-6 bg-white dark:bg-gray-800 rounded-xl shadow-xl absolute top-20 right-6 z-50">
   <li><a href="index.html" class="hover:text-purple-500 transition">Home</a></li>
   <li><a href="reparaturen.html" class="hover:text-purple-500 transition">Reparaturen</a></li>
@@ -106,22 +105,16 @@
   <li><a href="about.html" class="hover:text-purple-500 transition">Über uns</a></li>
   <li><a href="contact.html" class="hover:text-purple-500 transition">Kontakt</a></li>
 
-  <!-- Login für Handy -->
+  <!-- Login nur für Mobile -->
   <li>
     <div class="flex flex-col gap-2">
-      <button id="google-login-mobile" 
-              class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-500 transition">
+      <button id="google-login-mobile" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-500 transition">
         Mit Google anmelden
       </button>
-
-      <button id="logout-mobile" 
-              class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-500 transition hidden">
+      <button id="logout-mobile" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-500 transition hidden">
         Abmelden
       </button>
-
-      <p id="status-mobile" class="text-sm text-gray-600 dark:text-gray-300">
-        Nicht eingeloggt
-      </p>
+      <p id="status-mobile" class="text-sm text-gray-600 dark:text-gray-300">Nicht eingeloggt</p>
     </div>
   </li>
 </ul>
