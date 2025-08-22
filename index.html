@@ -205,6 +205,24 @@
       updateUI(netlifyIdentity.currentUser());
     }
   }
+function updateUI(user) {
+  const loggedIn = !!user;
+
+  // Benutzername oder E-Mail
+  const name = user?.user_metadata?.full_name || user?.email || "User";
+
+  // Desktop
+  btnLoginDesktop.classList.toggle("hidden", loggedIn);
+  btnLogoutDesktop.classList.toggle("hidden", !loggedIn);
+  statusDesktop.textContent = loggedIn ? ("Hallo " + name) : "Nicht eingeloggt";
+
+  // Mobile
+  btnLoginMobile.classList.toggle("hidden", loggedIn);
+  btnLogoutMobile.classList.toggle("hidden", !loggedIn);
+  statusMobile.textContent = loggedIn ? ("Hallo " + name) : "Nicht eingeloggt";
+}
+
+  
 </script>
 
   
