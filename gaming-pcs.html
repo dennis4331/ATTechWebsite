@@ -384,33 +384,35 @@
     // AOS Init
     AOS.init({ duration: 1000, once: true });
 
+    // Dark Mode Toggle mit Icon & LocalStorage
+    const btn = document.getElementById('darkToggle');
 
-  const btn = document.getElementById("darkToggle");
+    function updateIcon() {
+      if (document.documentElement.classList.contains('dark')) {
+        btn.textContent = "☀️";
+      } else {
+        btn.textContent = "🌙";
+      }
+    }
 
-  function updateIcon() {
-    if (!btn) return; // Falls Button fehlt (z. B. Mobile)
-    btn.textContent = document.documentElement.classList.contains("dark")
-      ? "☀️"
-      : "🌙";
-  }
+    // gespeichertes Theme prüfen
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
 
-  // gespeichertes Theme prüfen
-  if (localStorage.getItem("theme") === "dark") {
-    document.documentElement.classList.add("dark");
-  }
+    updateIcon();
 
-  updateIcon();
+    btn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
 
-  if (btn) {
-    btn.addEventListener("click", () => {
-      document.documentElement.classList.toggle("dark");
-      localStorage.setItem(
-        "theme",
-        document.documentElement.classList.contains("dark") ? "dark" : "light"
-      );
+      if (document.documentElement.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+
       updateIcon();
     });
-  }
 
    // Mobile Menü öffnen/schließen
 const toggle = document.getElementById('menuToggle');
@@ -420,6 +422,6 @@ toggle.addEventListener('click', () => {
   mobileMenu.classList.toggle('hidden');
 });
   
-</script>5
+</script>
 </body>
 </html>
