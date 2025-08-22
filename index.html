@@ -151,6 +151,63 @@
   </li>
 </ul>
 
+<script>
+  // Stelle sicher, dass das Widget geladen ist
+  if (!window.netlifyIdentity) {
+    console.warn("Netlify Identity Widget nicht geladen. Prüfe die Script-URL.");
+  } else {
+    // init (optional, aber sauber)
+    netlifyIdentity.init();
+
+    // Elemente
+    const btnLoginDesktop = document.getElementById("netlify-login-desktop");
+    const btnLogoutDesktop = document.getElementById("netlify-logout-desktop");
+    const statusDesktop = document.getElementById("status-desktop");
+
+    const btnLoginMobile = document.getElementById("netlify-login-mobile");
+    const btnLogoutMobile = document.getElementById("netlify-logout-mobile");
+    const statusMobile = document.getElementById("status-mobile");
+
+    function updateUI(user) {
+      const loggedIn = !!user;
+      // Desktop
+      if (btnLoginDesktop) btnLoginDesktop.classList.toggle("hidden", loggedIn);
+      if (btnLogoutDesktop) btnLogoutDesktop.classList.toggle("hidden", !loggedIn);
+      if (statusDesktop) statusDesktop.textContent = loggedIn ? ("Hallo " + (user.user_metadata?.full_name || user.email || user?.user_id)) : "Nicht eingeloggt";
+
+      // Mobile
+      if (btnLoginMobile) btnLoginMobile.classList.toggle("hidden", loggedIn);
+      if (btnLogoutMobile) btnLogoutMobile.classList.toggle("hidden", !loggedIn);
+      if (statusMobile) statusMobile.textContent = loggedIn ? ("Hallo " + (user.user_metadata?.full_name || user.email || user?.user_id)) : "Nicht eingeloggt";
+    }
+
+    // Events
+    netlifyIdentity.on("init", user => updateUI(user));
+    netlifyIdentity.on("login", user => {
+      updateUI(user);
+      netlifyIdentity.close(); // schliesst das Modal
+      // optional: schließe mobilmenü automatisch, falls offen:
+      const mobileMenu = document.getElementById("mobileMenu");
+      if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.add("hidden");
+      }
+    });
+    netlifyIdentity.on("logout", () => updateUI(null));
+
+    // Button-Handler
+    if (btnLoginDesktop) btnLoginDesktop.addEventListener("click", () => netlifyIdentity.open());
+    if (btnLoginMobile) btnLoginMobile.addEventListener("click", () => netlifyIdentity.open());
+    if (btnLogoutDesktop) btnLogoutDesktop.addEventListener("click", () => netlifyIdentity.logout());
+    if (btnLogoutMobile) btnLogoutMobile.addEventListener("click", () => netlifyIdentity.logout());
+
+    // initialer UI-Status (falls init schon gelaufen ist)
+    if (netlifyIdentity.currentUser()) {
+      updateUI(netlifyIdentity.currentUser());
+    }
+  }
+</script>
+
+  
   <script type="module">
   // Firebase SDKs importieren
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
