@@ -87,7 +87,15 @@
       document.documentElement.classList.contains('dark') ? 'dark' : 'light');
     updateIcon();
   });
-
+  
+     // Mobile Menü Toggle
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+      menu.classList.toggle('flex-col');
+    });
 
 </script>
 </body>
