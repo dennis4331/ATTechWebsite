@@ -19,12 +19,14 @@
   </a>
 
   <!-- Menü in der Mitte -->
-<li class="hidden md:block">
-  <button id="darkToggle"
-    class="px-3 py-1 rounded-lg bg-gray-200 dark:bg-gray-700 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600 transition">
-    🌙
-  </button>
-</li>
+  <ul id="menu" class="hidden md:flex text-xl gap-6 font-medium mx-auto items-center">
+    <!-- Darkmode Button links neben Home -->
+    <li>
+      <button id="darkToggle"
+        class="px-3 py-1 rounded-lg bg-gray-200 dark:bg-gray-700 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+        🌙
+      </button>
+    </li>
 
     <li><a href="index.html" class="hover:text-purple-500 transition">Home</a></li>
     <li><a href="reparaturen.html" class="hover:text-purple-500 transition">Reparaturen</a></li>
@@ -143,16 +145,7 @@
   </li>
 </ul>
 
-<!-- Mobiles Menü -->
-<ul id="mobileMenu" class="hidden flex-col gap-4 font-medium p-6 bg-white dark:bg-gray-800 rounded-xl shadow-xl absolute top-20 right-6 z-50">
-  <li><a href="index.html" class="hover:text-purple-500 transition">Home</a></li>
-  <li><a href="reparaturen.html" class="hover:text-purple-500 transition">Reparatur</a></li>
-  <li><a href="builds.html" class="hover:text-purple-500 transition">PC-Builds</a></li>
-  <li><a href="about.html" class="hover:text-purple-500 transition">Über uns</a></li>
-  <li><a href="contact.html" class="hover:text-purple-500 transition">Kontakt</a></li>
-</ul>
-
-<script type="module">
+  <script type="module">
   // Firebase SDKs importieren
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } 
@@ -231,8 +224,8 @@
     });
   })();
 
+  </script>
 
-</script>
   
 <!-- Hero -->
 <section class="text-center py-20 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
