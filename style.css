@@ -1,1 +1,25 @@
+/* eigene kleine Ergänzungen */
+a {
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #8b5cf6; /* lila */
+}
+
+.discord-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 4px 8px;
+  border-radius: 0.75rem;
+  background: linear-gradient(to bottom right, #1e1b4b, #312e81, #1e1b4b);
+  color: #a5b4fc;
+  border: 1px solid rgba(129, 140, 248, 0.3);
+  transition: all 0.3s ease;
+}
+.discord-btn:hover {
+  color: white;
+  border-color: rgba(129, 140, 248, 0.6);
+  box-shadow: 0 4px 10px rgba(129, 140, 248, 0.3);
+}
 
