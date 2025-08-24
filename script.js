@@ -104,12 +104,26 @@ if (window.netlifyIdentity) {
   });
 })();
 
-const menuToggle = document.getElementById("menu-toggle");
-  const mobileMenu = document.getElementById("mobileMenu");
 
-  menuToggle.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if (menuToggle && mobileMenu) {
+      // Toggle öffnen/schließen
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Menü schließen, wenn ein Link oder Button angeklickt wird
+      mobileMenu.querySelectorAll("a, button").forEach(el => {
+        el.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    }
   });
+
 
 
   
