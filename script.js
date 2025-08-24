@@ -104,3 +104,35 @@ if (window.netlifyIdentity) {
   });
 })();
 
+document.addEventListener("DOMContentLoaded", () => {
+  // 📱 Hamburger-Menü
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  }
+
+  // 🌙 Darkmode (Desktop & Mobile gemeinsam)
+  function setDarkmode(enabled) {
+    document.documentElement.classList.toggle("dark", enabled);
+    localStorage.setItem("darkmode", enabled ? "true" : "false");
+    if (document.getElementById("darkmode-toggle"))
+      document.getElementById("darkmode-toggle").checked = enabled;
+    if (document.getElementById("darkmode-toggle-mobile"))
+      document.getElementById("darkmode-toggle-mobile").checked = enabled;
+  }
+
+  const saved = localStorage.getItem("darkmode") === "true";
+  setDarkmode(saved);
+
+  ["darkmode-toggle", "darkmode-toggle-mobile"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener("change", () => setDarkmode(el.checked));
+    }
+  });
+
+  
+
