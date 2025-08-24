@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 🔑 Netlify Identity
 if (window.netlifyIdentity) {
-  document.addEventListener("DOMContentLoaded", () => {
-    netlifyIdentity.init();
+  netlifyIdentity.init();
 
+  document.addEventListener("DOMContentLoaded", () => {
     const statusDesktop = document.getElementById("status-desktop");
     const statusMobile = document.getElementById("status-mobile");
     const mobileMenu = document.getElementById("mobileMenu");
@@ -43,17 +43,7 @@ if (window.netlifyIdentity) {
       if (statusMobile) statusMobile.textContent = "";
     }
 
-    // Login
-    netlifyIdentity.on("login", user => {
-      updateUI(user);
-      netlifyIdentity.close();
-      if (mobileMenu) mobileMenu.classList.add("hidden"); // Menü schließen
-    });
-
-    // Logout
-    netlifyIdentity.on("logout", () => updateUI(null));
-
-    // Delegation: Klicks abfangen
+    // Delegation: Klicks einmal global abfangen
     document.addEventListener("click", e => {
       if (e.target.closest("#netlify-login-desktop") || e.target.closest("#netlify-login-mobile")) {
         netlifyIdentity.open("login");
@@ -63,11 +53,20 @@ if (window.netlifyIdentity) {
       }
     });
 
-    // Init
+    // Events von Netlify Identity
     netlifyIdentity.on("init", user => updateUI(user));
+    netlifyIdentity.on("login", user => {
+      updateUI(user);
+      netlifyIdentity.close();
+      if (mobileMenu) mobileMenu.classList.add("hidden");
+    });
+    netlifyIdentity.on("logout", () => updateUI(null));
+
+    // Falls schon eingeloggt
     updateUI(netlifyIdentity.currentUser());
   });
 }
+
 
 
 
