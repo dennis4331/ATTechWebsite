@@ -15,37 +15,33 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
 // 🔑 Netlify Identity
 if (window.netlifyIdentity) {
   document.addEventListener("DOMContentLoaded", () => {
     netlifyIdentity.init();
 
-    const btnLoginDesktop = document.getElementById("netlify-login-desktop");
-    const btnLogoutDesktop = document.getElementById("netlify-logout-desktop");
     const statusDesktop = document.getElementById("status-desktop");
-
-    const btnLoginMobile = document.getElementById("netlify-login-mobile");
-    const btnLogoutMobile = document.getElementById("netlify-logout-mobile");
     const statusMobile = document.getElementById("status-mobile");
-
     const mobileMenu = document.getElementById("mobileMenu");
 
     function updateUI(user) {
       const loggedIn = !!user;
 
       // Desktop
+      const btnLoginDesktop = document.getElementById("netlify-login-desktop");
+      const btnLogoutDesktop = document.getElementById("netlify-logout-desktop");
       if (btnLoginDesktop) btnLoginDesktop.classList.toggle("hidden", loggedIn);
       if (btnLogoutDesktop) btnLogoutDesktop.classList.toggle("hidden", !loggedIn);
       if (statusDesktop) statusDesktop.textContent = "";
 
       // Mobile
+      const btnLoginMobile = document.getElementById("netlify-login-mobile");
+      const btnLogoutMobile = document.getElementById("netlify-logout-mobile");
       if (btnLoginMobile) btnLoginMobile.classList.toggle("hidden", loggedIn);
       if (btnLogoutMobile) btnLogoutMobile.classList.toggle("hidden", !loggedIn);
       if (statusMobile) statusMobile.textContent = "";
     }
-
-    // Init
-    netlifyIdentity.on("init", user => updateUI(user));
 
     // Login
     netlifyIdentity.on("login", user => {
@@ -57,16 +53,23 @@ if (window.netlifyIdentity) {
     // Logout
     netlifyIdentity.on("logout", () => updateUI(null));
 
-    // Buttons
-    if (btnLoginDesktop) btnLoginDesktop.addEventListener("click", () => netlifyIdentity.open("login"));
-    if (btnLogoutDesktop) btnLogoutDesktop.addEventListener("click", () => netlifyIdentity.logout());
-    if (btnLoginMobile) btnLoginMobile.addEventListener("click", () => netlifyIdentity.open("login"));
-    if (btnLogoutMobile) btnLogoutMobile.addEventListener("click", () => netlifyIdentity.logout());
+    // Delegation: Klicks abfangen
+    document.addEventListener("click", e => {
+      if (e.target.closest("#netlify-login-desktop") || e.target.closest("#netlify-login-mobile")) {
+        netlifyIdentity.open("login");
+      }
+      if (e.target.closest("#netlify-logout-desktop") || e.target.closest("#netlify-logout-mobile")) {
+        netlifyIdentity.logout();
+      }
+    });
 
-    // Prüfen ob schon eingeloggt
+    // Init
+    netlifyIdentity.on("init", user => updateUI(user));
     updateUI(netlifyIdentity.currentUser());
   });
 }
+
+
 
 // 📌 Aktive Seite markieren
 (function () {
