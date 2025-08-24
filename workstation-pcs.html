@@ -283,62 +283,16 @@
 <footer class="text-center p-6 bg-gray-200 dark:bg-gray-700">
   © 2025 A&T Tech – Alle Rechte vorbehalten.
 </footer>
-
-<script>
-    // AOS Init
-    AOS.init({ duration: 1000, once: true });
-
-
-  document.addEventListener("DOMContentLoaded", () => {
-    // Beide Buttons holen (Desktop & Mobile)
-    const btns = [
-      document.getElementById("darkToggle"),
-      document.getElementById("darkToggleMobile")
-    ];
-
-    // Funktion Icon setzen
-    function updateIcons() {
-      btns.forEach(btn => {
-        if (btn) {
-          btn.textContent = document.documentElement.classList.contains("dark")
-            ? "☀️"
-            : "🌙";
-        }
-      });
-    }
-
-    // Prüfen ob Darkmode gespeichert ist
-    if (localStorage.getItem("theme") === "dark") {
-      document.documentElement.classList.add("dark");
-    }
-
-    // Icons beim Laden updaten
-    updateIcons();
-
-    // Click-Event für beide Buttons
-    btns.forEach(btn => {
-      if (!btn) return;
-      btn.addEventListener("click", () => {
-        document.documentElement.classList.toggle("dark");
-        localStorage.setItem(
-          "theme",
-          document.documentElement.classList.contains("dark") ? "dark" : "light"
-        );
-        updateIcons();
-      });
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 800
     });
-  });
+  </script>
+   <!-- JS -->
 
+  <script src="script.js"></script>
 
-
-   // Mobile Menü öffnen/schließen
-const toggle = document.getElementById('menuToggle');
-const mobileMenu = document.getElementById('mobileMenu');
-
-toggle.addEventListener('click', () => {
-  mobileMenu.classList.toggle('hidden');
-});
-  
-</script>
 </body>
 </html>
