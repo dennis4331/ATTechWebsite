@@ -216,14 +216,12 @@ if (window.netlifyIdentity) {
       // Desktop
       if (btnLoginDesktop) btnLoginDesktop.classList.toggle("hidden", loggedIn);
       if (btnLogoutDesktop) btnLogoutDesktop.classList.toggle("hidden", !loggedIn);
-      if (statusDesktop) statusDesktop.textContent = loggedIn
-      
+      if (statusDesktop) statusDesktop.textContent = ""; // kein Text mehr
 
       // Mobile
       if (btnLoginMobile) btnLoginMobile.classList.toggle("hidden", loggedIn);
       if (btnLogoutMobile) btnLogoutMobile.classList.toggle("hidden", !loggedIn);
-      if (statusMobile) statusMobile.textContent = loggedIn
-      
+      if (statusMobile) statusMobile.textContent = ""; // kein Text mehr
     }
 
     // Init mit aktuellem User
@@ -250,6 +248,8 @@ if (window.netlifyIdentity) {
     updateUI(netlifyIdentity.currentUser());
   });
 }
+
+
 
 
   // Aktive Seite markieren
