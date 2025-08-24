@@ -1,19 +1,30 @@
 // 🌙 Darkmode Umschalten
 document.addEventListener("DOMContentLoaded", () => {
   const darkToggle = document.getElementById("darkmode-toggle");
-  if (darkToggle) {
-    darkToggle.addEventListener("change", () => {
-      document.documentElement.classList.toggle("dark", darkToggle.checked);
-      localStorage.setItem("darkmode", darkToggle.checked ? "true" : "false");
-    });
 
-    // Zustand laden
-    if (localStorage.getItem("darkmode") === "true") {
-      document.documentElement.classList.add("dark");
-      darkToggle.checked = true;
-    }
+  if (!darkToggle) return; // Falls Toggle nicht existiert → nichts machen
+
+  // Zustand laden (bevor der User interagiert)
+  if (localStorage.getItem("darkmode") === "true") {
+    document.documentElement.classList.add("dark");
+    darkToggle.checked = true;
+  } else {
+    document.documentElement.classList.remove("dark");
+    darkToggle.checked = false;
   }
+
+  // Umschalten
+  darkToggle.addEventListener("change", () => {
+    if (darkToggle.checked) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("darkmode", "true");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("darkmode", "false");
+    }
+  });
 });
+
 
 
 // 🔑 Netlify Identity
