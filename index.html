@@ -328,6 +328,52 @@ if (window.netlifyIdentity) {
 
 
 <script>
+    // AOS Init
+    AOS.init({ duration: 1000, once: true });
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Beide Buttons holen (Desktop & Mobile)
+    const btns = [
+      document.getElementById("darkToggle"),
+      document.getElementById("darkToggleMobile")
+    ];
+
+    // Funktion Icon setzen
+    function updateIcons() {
+      btns.forEach(btn => {
+        if (btn) {
+          btn.textContent = document.documentElement.classList.contains("dark")
+            ? "☀️"
+            : "🌙";
+        }
+      });
+    }
+
+    // Prüfen ob Darkmode gespeichert ist
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+
+    // Icons beim Laden updaten
+    updateIcons();
+
+    // Click-Event für beide Buttons
+    btns.forEach(btn => {
+      if (!btn) return;
+      btn.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
+        localStorage.setItem(
+          "theme",
+          document.documentElement.classList.contains("dark") ? "dark" : "light"
+        );
+        updateIcons();
+      });
+    });
+  });
+
+
+
    // Mobile Menü öffnen/schließen
 const toggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
