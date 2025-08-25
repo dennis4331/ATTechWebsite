@@ -1,29 +1,30 @@
 // 🌙 Darkmode Umschalten
 document.addEventListener("DOMContentLoaded", () => {
-  const darkToggle = document.getElementById("darkmode-toggle");
+  const toggles = [
+    document.getElementById("darkmode-toggle-desktop"),
+    document.getElementById("darkmode-toggle-mobile")
+  ].filter(Boolean); // Nur existierende nehmen
 
-  if (!darkToggle) return; // Falls Toggle nicht existiert → nichts machen
+  if (!toggles.length) return;
 
-  // Zustand laden (bevor der User interagiert)
-  if (localStorage.getItem("darkmode") === "true") {
-    document.documentElement.classList.add("dark");
-    darkToggle.checked = true;
-  } else {
-    document.documentElement.classList.remove("dark");
-    darkToggle.checked = false;
-  }
+  // Zustand laden
+  const isDark = localStorage.getItem("darkmode") === "true";
+  document.documentElement.classList.toggle("dark", isDark);
+  toggles.forEach(t => (t.checked = isDark));
 
-  // Umschalten
-  darkToggle.addEventListener("change", () => {
-    if (darkToggle.checked) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("darkmode", "true");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("darkmode", "false");
-    }
+  // Umschalten + Synchronisieren
+  toggles.forEach(toggle => {
+    toggle.addEventListener("change", (e) => {
+      const enabled = e.target.checked;
+      document.documentElement.classList.toggle("dark", enabled);
+      localStorage.setItem("darkmode", enabled);
+
+      // andere Switches mitziehen
+      toggles.forEach(t => (t.checked = enabled));
+    });
   });
 });
+
 
 
 
