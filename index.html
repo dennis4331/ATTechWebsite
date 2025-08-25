@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+e<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -122,16 +122,19 @@
   <button id="netlify-logout-desktop" class="hidden p-2 bg-red-500 text-white rounded">Logout</button>
 </div>
 
-   <label class="inline-flex items-center relative">
+  <div class="md:hidden flex items-center space-x-3">
+  
+  <!-- 🌙 Darkmode-Switch (nur Mobile sichtbar) -->
+  <label class="inline-flex items-center relative">
     <input class="peer hidden" id="darkmode-toggle" type="checkbox" />
     <div
-      class="relative w-[60px] h-[28px] bg-white peer-checked:bg-zinc-500 rounded-full 
-      after:absolute after:content-[''] after:w-[20px] after:h-[20px] 
+      class="relative w-[50px] h-[24px] bg-white peer-checked:bg-zinc-500 rounded-full 
+      after:absolute after:content-[''] after:w-[18px] after:h-[18px] 
       after:bg-gradient-to-r from-orange-500 to-yellow-400 
       peer-checked:after:from-zinc-900 peer-checked:after:to-zinc-900 
-      after:rounded-full after:top-[4px] after:left-[4px] 
-      active:after:w-[24px] peer-checked:after:left-[34px] 
-      shadow-sm duration-300 after:duration-300 after:shadow-md"
+      after:rounded-full after:top-[3px] after:left-[3px] 
+      peer-checked:after:left-[28px] shadow-sm duration-300 
+      after:duration-300 after:shadow-md"
     ></div>
 
     <!-- Sonne -->
@@ -154,16 +157,15 @@
       ></path>
     </svg>
   </label>
-    
- <div class="md:hidden">
-    <button id="menu-toggle" class="focus:outline-none">
-      <!-- Icon -->
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-  </div>
+
+  <!-- 🍔 Hamburger -->
+  <button id="menu-toggle" class="focus:outline-none">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+</div>
   
 
 
